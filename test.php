@@ -3,6 +3,7 @@
 
 <head>
     <title>Modal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <style type="text/css">
         * {
             margin: 0;
@@ -88,6 +89,8 @@
             </div>
         </div>
     </div>
+    <i class="fas fa-times" style="color:black"></i>
+    <i class="far fa-times-circle"></i><i class="far fa-times-circle"></i><i class="far fa-times-circle"></i><i class="far fa-times-circle"></i><i class="far fa-times-circle"></i><i class="far fa-times-circle"></i><i class="far fa-times-circle"></i><i class="far fa-times-circle"></i><i class="far fa-times-circle"></i>
     <script type="text/javascript">
         var modalBtns = document.querySelectorAll(".slideshow-item-button");
 

@@ -332,8 +332,9 @@ body {
 
 .modal-content {
   background: #fff;
-  margin-top: 100px;
-  width: 50%;
+  margin-top: 15%;
+  width: fit-content;
+  height: fit-content;
   margin-left: auto;
   margin-right: auto;
   padding: 8px 24px;
@@ -343,16 +344,35 @@ body {
 
 .modal-header {
   font-weight: 500;
-  padding: 10px 0;
   font-size: 24px;
 }
 
 .modal-header .modal-close {
   float: right;
   font-size: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  border: none;
+  padding: 0;
+  width: 2em;
+  height: 2em;
+  color: #1da1f2;
+  cursor: pointer;
 }
 
 .modal-body {
   color: #7b7b7b;
-  padding: 15px 0;
+  padding: 0 0;
+  width: fit-content;
+  height: fit-content;
+}
+
+.modal-close:focus {
+  outline: solid 0 transparent;
+  box-shadow: 0 0 0 2px #8ed0f9;
+}
+
+.modal-close:hover {
+  background: rgba(29, 161, 142, 0.1);
 }

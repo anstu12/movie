@@ -49,7 +49,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 Heading
-                                <button class="modal-close" data-dismiss="modal1">close</button>
+                                <button class="modal-close" data-dismiss="modal1"><i class="fas fa-times"></i></button>
                             </div>
                             <div class="modal-body">
                                 <iframe width="560" height="315" src="https://www.youtube.com/embed/-FmWuCgJmxo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
