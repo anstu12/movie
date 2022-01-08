@@ -54,8 +54,8 @@
     <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/u9Mv98Gr5pY title=" YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/-FmWuCgJmxo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
     <button class="slideshow-item-button" data-modal="modal1">open modal 1</button>
-    <button class="modal-open" data-modal="modal2">open modal 2</button>
-    <button class="modal-open" data-modal="modal3">open modal 3</button>
+    <button class="slideshow-item-button" data-modal="modal2">open modal 2</button>
+    <button class="slideshow-item-button" data-modal="modal3">open modal 3</button>
     <div class="modal" id="modal1">
         <div class="modal-content">
             <div class="modal-header">
