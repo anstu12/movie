@@ -1,120 +1,128 @@
+<?php
+$con = mysqli_connect("localhost", "root", "", "project_movie");
+
+if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    exit();
+}
+
+$movieId = 26;
+
+$sql = "SELECT * FROM `movielist` WHERE `movieId`=$movieId";
+
+if ($result = mysqli_query($con, $sql)) {
+    // Fetch one and one row
+    while ($row = mysqli_fetch_row($result)) {
+        $link = $row[8];
+    }
+    mysqli_free_result($result);
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Modal</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
     <style type="text/css">
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
         * {
             margin: 0;
             padding: 0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
         }
 
-        .modal {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 2;
-            display: none;
+        body {
+            background: #272727;
+            font-family: "Montserrat", sans-serif;
         }
 
-        .modal-content {
-            background: #fff;
-            margin-top: 100px;
-            width: 50%;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 8px 24px;
-            border-radius: 4px;
-            z-index: 4;
+        .navMenu {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
         }
 
-        .modal-header {
+        .navMenu a {
+            color: #f6f4e6;
+            text-decoration: none;
+            font-size: 1.2em;
+            text-transform: uppercase;
             font-weight: 500;
-            padding: 10px 0;
-            font-size: 24px;
+            display: inline-block;
+            width: 80px;
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
         }
 
-        .modal-header .modal-close {
-            float: right;
-            font-size: 20px;
+        .navMenu a:hover {
+            color: #fddb3a;
         }
 
-        .modal-body {
-            color: #7b7b7b;
-            padding: 15px 0;
+        .navMenu .dot {
+            width: 6px;
+            height: 6px;
+            background: #fddb3a;
+            border-radius: 50%;
+            opacity: 0;
+            -webkit-transform: translateX(30px);
+            transform: translateX(30px);
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .navMenu a:nth-child(1):hover~.dot {
+            -webkit-transform: translateX(30px);
+            transform: translateX(30px);
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            opacity: 1;
+        }
+
+        .navMenu a:nth-child(2):hover~.dot {
+            -webkit-transform: translateX(110px);
+            transform: translateX(110px);
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            opacity: 1;
+        }
+
+        .navMenu a:nth-child(3):hover~.dot {
+            -webkit-transform: translateX(200px);
+            transform: translateX(200px);
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            opacity: 1;
+        }
+
+        .navMenu a:nth-child(4):hover~.dot {
+            -webkit-transform: translateX(285px);
+            transform: translateX(285px);
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            opacity: 1;
         }
     </style>
+
 </head>
 
 <body>
-    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/u9Mv98Gr5pY title=" YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/-FmWuCgJmxo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-    <button class="slideshow-item-button" data-modal="modal1">open modal 1</button>
-    <button class="slideshow-item-button" data-modal="modal2">open modal 2</button>
-    <button class="slideshow-item-button" data-modal="modal3">open modal 3</button>
-    <div class="modal" id="modal1">
-        <div class="modal-content">
-            <div class="modal-header">
-                Heading
-                <button class="modal-close" data-dismiss="modal1">close</button>
-            </div>
-            <div class="modal-body">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/-FmWuCgJmxo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-    <div class="modal" id="modal2">
-        <div class="modal-content">
-            <div class="modal-header">
-                Heading
-                <button class="modal-close" data-dismiss="modal2">close</button>
-            </div>
-            <div class="modal-body">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/ND7VFJW9oco" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-    <div class="modal" id="modal3">
-        <div class="modal-content">
-            <div class="modal-header">
-                Heading
-                <button class="modal-close" data-dismiss="modal">close</button>
-            </div>
-            <div class="modal-body">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/nxIOd1yDyVg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-    <i class="fas fa-times" style="color:black"></i>
-    <i class="far fa-times-circle"></i><i class="far fa-times-circle"></i><i class="far fa-times-circle"></i><i class="far fa-times-circle"></i><i class="far fa-times-circle"></i><i class="far fa-times-circle"></i><i class="far fa-times-circle"></i><i class="far fa-times-circle"></i><i class="far fa-times-circle"></i>
-    <script type="text/javascript">
-        var modalBtns = document.querySelectorAll(".slideshow-item-button");
 
-        modalBtns.forEach(function(btn) {
-            btn.onclick = function() {
-                var modal = btn.getAttribute("data-modal");
-                document.getElementById(modal).style.display = 'block';
-            };
-        });
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo "$link" ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 
-        var closeBtns = document.querySelectorAll(".modal-close");
+    <nav class="navMenu">
+        <a href="#">Home</a>
+        <a href="#">My Tickets</a>
+        <a href="#">Schedule</a>
+        <a href="#">Contact</a>
+        <div class="dot"></div>
+    </nav>
 
-        closeBtns.forEach(function(btn) {
-            btn.onclick = function() {
-                var modal = (btn.closest(".modal").style.display = "none");
-            }
-        });
-
-        window.onclick = function(e) {
-            if (e.target.classList.contains('modal')) {
-                e.target.style.display = 'none';
-            }
-        };
-    </script>
 </body>
 
 </html>

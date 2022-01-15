@@ -1,18 +1,13 @@
 <?php
 session_start();
 
-$host = "localhost";
-$username = "root";
-$password = "";
-$db_name = "project_movie";
+$con = mysqli_connect("localhost", "root", "", "project_movie");
 
-//Create Connection
-$conn = new mysqli($host, $username, $password, $db_name);
-$con = mysqli_connect($host, $username, $password, $db_name);
+if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    exit();
+}
 
-//Check connection status
-if ($conn->connect_error)
-    die("Connection failed: " . $conn->connect_error);
 ?>
 
 
@@ -37,10 +32,10 @@ if ($conn->connect_error)
             </div>
             <div class="menu-container">
                 <ul class="menu-list">
-                    <li class="menu-list-item active">Home</li>
-                    <li class="menu-list-item">Movies</li>
-                    <li class="menu-list-item">Schedule</li>
-                    <li class="menu-list-item">Cinemas</li>
+                    <li class="menu-list-item active"><a link href="#">Home</a></li>
+                    <li class="menu-list-item"><a link href="#">My Tickets</a></li>
+                    <li class="menu-list-item"><a href="#">Schedule</a></li>
+                    <li class="menu-list-item"><a link href="#">Contact</a></li>
                 </ul>
             </div>
             <div class="profile-container">
@@ -123,13 +118,13 @@ if ($conn->connect_error)
             <!-- Dots/circles-->
             <div style="text-align:center;">
                 <br>
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="slideshow-container dot" onclick="currentSlide(1)"></span>
+                <span class="slideshow-container dot" onclick="currentSlide(2)"></span>
+                <span class="slideshow-container dot" onclick="currentSlide(3)"></span>
             </div>
         </div>
         <div class="movie-list-container">
-            <h1 class="movie-list-title">NOW SHOWING</h1>
+            <div class="movie-list-title">now showing</div>
             <div class="movie-list-wrapper">
                 <div class="movie-list">
                     <div class="movie-list-item">
