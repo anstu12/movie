@@ -132,9 +132,36 @@ if (mysqli_connect_errno()) {
                         <button class="movie-list-item-button" id="open">WATCH</button>
                         <button class="movie-list-item-button-buy" id="open">Buy Ticket</button>
                     </div>
+                    <div class="movie-list-item">
+                        <img class="movie-list-item-img" src="img/freeguy.jfif">
+                        <button class="movie-list-item-button" id="open">WATCH</button>
+                        <button class="movie-list-item-button-buy" id="open">Buy Ticket</button>
+                    </div>
+                    <div class="movie-list-item">
+                        <img class="movie-list-item-img" src="img/oldguard.jfif">
+                        <button class="movie-list-item-button" id="open">WATCH</button>
+                        <button class="movie-list-item-button-buy" id="open">Buy Ticket</button>
+                    </div>
+                    <div class="movie-list-item">
+                        <img class="movie-list-item-img" src="img/venom2.jfif">
+                        <button class="movie-list-item-button" id="open">WATCH</button>
+                        <button class="movie-list-item-button-buy" id="open">Buy Ticket</button>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="movie-list-container">
+        <div class="movie-list-title">Coming soon</div>
+        <div class="movie-list-wrapper">
+            <div class="movie-list">
+                <div class="movie-list-item">
+                    <img class="movie-list-item-img" src="img/godzilla vs. kong.jfif">
+                    <button class="movie-list-item-button" id="open">WATCH</button>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     <script src="js/mySlide.js"></script>
     <script src="js/modal.js"></script>
