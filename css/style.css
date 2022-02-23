@@ -158,6 +158,11 @@ body {
   transition: background-color 0.6s ease;
 }
 
+.slideshow-img {
+  width: 100%;
+  height: auto;
+}
+
 /* .active > .dot {
   background-color: red !important;
 } ? pachi garney*/

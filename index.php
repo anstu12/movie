@@ -58,7 +58,7 @@ if (mysqli_connect_errno()) {
             while ($row = $res->fetch_object()) {
                 echo " 
                     <div class='mySlides'>
-                        <img src='img/" . $row->image . "'>
+                        <img  class='slideshow-img'src='img/" . $row->image . "'>
                         <div class='slideshow-item-text'>
                             <button class='slideshow-item-button' data-modal='modal" . $count . "'>
                                 <i class=' fas fa-play-circle'></i>&nbsp;WATCH
