@@ -216,6 +216,8 @@ body {
   z-index: 1;
   padding-top: 60px;
   padding-bottom: 150px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .movie-list {

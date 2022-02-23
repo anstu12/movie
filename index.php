@@ -51,7 +51,6 @@ if (mysqli_connect_errno()) {
     <div class="container">
         <!-- Slideshow container -->
         <div class="slideshow-container">
-
             <?php
             $count = 1;
             $res = $con->query("SELECT * FROM featured");
@@ -95,6 +94,34 @@ if (mysqli_connect_errno()) {
             <div class="movie-list-title">now showing</div>
             <div class="movie-list-wrapper">
                 <div class="movie-list">
+                    <?php
+                    $count = 1;
+                    $res = $con->query("SELECT * FROM movielist");
+                    while ($row = $res->fetch_object()) {
+                        echo "
+                        <div class='movie-list-item'>
+                            <img  class='movie-list-item-img' src='img/" . $row->image . "'>
+                            <button class='movie-list-item-button' id='open'>WATCH</button>
+                            <div class='slideshow-item-text'>
+                                <div class='modal' id='modal" . $count . "'>
+                                    <div class='modal-content'>
+                                        <div class='modal-header'>
+                                            Heading
+                                            <button class='modal-close' data-dismiss='modal" . $count . "'><i class='fas fa-times'></i></button>
+                                        </div>
+                                        <div class='modal-body'>
+                                            <iframe width='560' height='315' src='" . $row->trailerLink . "' title='YouTube video player' frameborder='0'allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;allowfullscreen;'></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class='movie-list-item-button-buy' id='open'>Buy Ticket</button>
+                            </div>
+                        </div>
+                        ";
+                    }
+                    ?>
+                </div>
+                <!-- <div class="movie-list">
                     <div class="movie-list-item">
                         <img class="movie-list-item-img" src="img/cherry.jfif">
                         <button class="movie-list-item-button" id="open">WATCH</button>
@@ -115,7 +142,7 @@ if (mysqli_connect_errno()) {
                         <button class="movie-list-item-button" id="open">WATCH</button>
                         <button class="movie-list-item-button-buy" id="open">Buy Ticket</button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
