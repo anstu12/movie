@@ -17,6 +17,8 @@ if (mysqli_connect_errno()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Sen&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <title>movie</title>
 </head>
@@ -49,39 +51,34 @@ if (mysqli_connect_errno()) {
     <div class="container">
         <!-- Slideshow container -->
         <div class="slideshow-container">
-            
-          <?php 
-          $count = 1;
-          $res=$con->query("select * from movielist");
-          while ($row=$res->fetch_object()) {
-             // $_SESSION['movie']=;
-            echo " 
-            <div class='mySlides'>
-                <img src='img/".$row->image2."' style='width:100%'>
-                <div class='slideshow-item-text'>
-                    <button class='slideshow-item-button' data-modal='modal".$count."'>
-                        <i class=' fas fa-play-circle'></i>&nbsp;WATCH
-                    </button>
-                    <div class='modal' id='modal".$count."'>
-                        <div class='modal-content'>
-                            <div class='modal-header'>
-                                Heading
-                                <button class='modal-close' data-dismiss='modal".$count."'><i class='fas fa-times'></i></button>
-                            </div>
-                            <div class='modal-body'>
-                                <iframe width='560' height='315' src='".$row->trailerLink."' title='YouTube video player' frameborder='0'
-                                 allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                                  allowfullscreen></iframe>
+
+            <?php
+            $count = 1;
+            $res = $con->query("SELECT * FROM featured");
+            while ($row = $res->fetch_object()) {
+                echo " 
+                    <div class='mySlides'>
+                        <img src='img/" . $row->image . "'>
+                        <div class='slideshow-item-text'>
+                            <button class='slideshow-item-button' data-modal='modal" . $count . "'>
+                                <i class=' fas fa-play-circle'></i>&nbsp;WATCH
+                            </button>
+                            <div class='modal' id='modal" . $count . "'>
+                                <div class='modal-content'>
+                                    <div class='modal-header'>
+                                        Heading
+                                        <button class='modal-close' data-dismiss='modal" . $count . "'><i class='fas fa-times'></i></button>
+                                    </div>
+                                <div class='modal-body'>
+                                    <iframe width='560' height='315' src='" . $row->trailer . "' title='YouTube video player' frameborder='0'allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;allowfullscreen;'></iframe>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     <button class='slideshow-item-button' id='open'><i class='fas fa-ticket-alt'></i>&nbsp;Buy Ticket</button>
                 </div>
             </div>";
-            $count++;
-
-          
-        } ?>
+                $count++;
+            } ?>
             <!-- Full-width images with caption text -->
             <!-- Next and previous buttons -->
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
