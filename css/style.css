@@ -38,13 +38,15 @@ body {
   color: #4dbf00;
 }
 
-.menu-list {
+.menu-list,
+.profile-list {
   display: flex;
   list-style: none;
   text-align: center;
 }
 
-.menu-list-item {
+.menu-list-item,
+.profile-list-item {
   margin-right: 25px;
 }
 
@@ -74,7 +76,8 @@ body {
   margin-right: 30px;
 }
 
-.menu-container a {
+.menu-container a,
+.profile-container a {
   color: #f6f4e6;
   text-decoration: none;
   font-size: 1.2em;
@@ -85,7 +88,8 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
-.menu-container a:hover {
+.menu-container a:hover,
+.profile-list a:hover {
   color: #4dbf00;
 }
 
@@ -217,13 +221,12 @@ body {
   padding-top: 60px;
   padding-bottom: 150px;
   width: 100%;
-  overflow: hidden;
 }
 
 .movie-list {
   display: flex;
-  height: 400px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .movie-list-item-img {
@@ -236,6 +239,8 @@ body {
   margin-right: 50px;
   position: relative;
   flex: auto;
+  width: 300px;
+  height: 500px;
 }
 
 .movie-list-item:hover.movie-list-item-img {
@@ -347,7 +352,7 @@ body {
   margin-right: 10px;
   position: absolute;
   top: 70%;
-  left: 48%;
+  left: 38%;
 }
 
 .slideshow-item-button {

@@ -32,7 +32,7 @@ if (mysqli_connect_errno()) {
             </div>
             <div class="menu-container">
                 <ul class="menu-list">
-                    <li class="menu-list-item active"><a link href="#">Home</a></li>
+                    <li class="menu-list-item active"><a link href="index.php">Home</a></li>
                     <li class="menu-list-item"><a link href="#">My Tickets</a></li>
                     <li class="menu-list-item"><a href="#">Schedule</a></li>
                     <li class="menu-list-item"><a link href="#">Contact</a></li>
@@ -41,8 +41,8 @@ if (mysqli_connect_errno()) {
             <div class="profile-container">
                 <div class="profile-text-container">
                     <ul class="profile-list">
-                        <li class="profile-list-item">Login</li>
-                        <li class="profile-list-item">Register</li>
+                        <li class="profile-list-item"><a href="login.php">Login</a></li>
+                        <li class="profile-list-item"><a href="register.php">Register</a></li>
                     </ul>
                 </div>
             </div>
@@ -68,14 +68,14 @@ if (mysqli_connect_errno()) {
                                         Heading
                                         <button class='modal-close' data-dismiss='modal" . $count . "'><i class='fas fa-times'></i></button>
                                     </div>
-                                <div class='modal-body'>
-                                    <iframe width='560' height='315' src='" . $row->trailer . "' title='YouTube video player' frameborder='0'allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;allowfullscreen;'></iframe>
+                                    <div class='modal-body'>
+                                        <iframe width='560' height='315' src='" . $row->trailer . "' title='YouTube video player' frameborder='0'allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;allowfullscreen;'></iframe>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <button class='slideshow-item-button' id='open'><i class='fas fa-ticket-alt'></i>&nbsp;Buy Ticket</button>
-                </div>
-            </div>";
+                        <button class='slideshow-item-button' id='open'><i class='fas fa-ticket-alt'></i>&nbsp;Buy Ticket</button>
+                    </div>
+                </div>";
                 $count++;
             } ?>
             <!-- Full-width images with caption text -->
@@ -95,29 +95,29 @@ if (mysqli_connect_errno()) {
             <div class="movie-list-wrapper">
                 <div class="movie-list">
                     <?php
-                    $count = 1;
-                    $res = $con->query("SELECT * FROM movielist");
-                    while ($row = $res->fetch_object()) {
+                    $cnt = 4;
+                    $asdf = $con->query("SELECT * FROM movielist");
+                    while ($row = $asdf->fetch_object()) {
                         echo "
-                        <div class='movie-list-item'>
-                            <img  class='movie-list-item-img' src='img/" . $row->image . "'>
-                            <button class='movie-list-item-button' id='open'>WATCH</button>
-                            <div class='slideshow-item-text'>
-                                <div class='modal' id='modal" . $count . "'>
-                                    <div class='modal-content'>
-                                        <div class='modal-header'>
-                                            Heading
-                                            <button class='modal-close' data-dismiss='modal" . $count . "'><i class='fas fa-times'></i></button>
-                                        </div>
-                                        <div class='modal-body'>
-                                            <iframe width='560' height='315' src='" . $row->trailerLink . "' title='YouTube video player' frameborder='0'allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;allowfullscreen;'></iframe>
+                            <div class='movie-list-item'>
+                                <img  class='movie-list-item-img'src='img/" . $row->image . "'>
+                                <div class = 'movielist-item-text'>
+                                    <button class='movie-list-item-button' id='open' data-modal='modal" . $cnt . "'>WATCH</button>
+                                    <div class='modal' id='modal" . $cnt . "'>
+                                        <div class='modal-content'>
+                                            <div class='modal-header'>
+                                                Heading
+                                                <button class='modal-close' data-dismiss='modal" . $cnt . "'><i class='fas fa-times'></i></button>
+                                            </div>
+                                            <div class='modal-body'>
+                                                <iframe width='560' height='315' src='" . $row->trailerLink . "' title='YouTube video player' frameborder='0'allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;allowfullscreen;'></iframe>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <button class='movie-list-item-button-buy' id='open'>Buy Ticket</button>
                             </div>
-                        </div>
                         ";
+                        $cnt++;
                     }
                     ?>
                 </div>
@@ -160,6 +160,7 @@ if (mysqli_connect_errno()) {
     </div>
     <script src="js/mySlide.js"></script>
     <script src="js/modal.js"></script>
+    <script src="js/movielistmodal.js"></script>
     <!-- /* footer */ -->
 </body>
 
