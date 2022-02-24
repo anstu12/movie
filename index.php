@@ -1,12 +1,6 @@
 <?php
-session_start();
 
-$con = mysqli_connect("localhost", "root", "", "project_movie");
-
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    exit();
-}
+include('server.php');
 
 ?>
 
@@ -53,7 +47,7 @@ if (mysqli_connect_errno()) {
         <div class="slideshow-container">
             <?php
             $count = 1;
-            $res = $con->query("SELECT * FROM featured");
+            $res = $db->query("SELECT * FROM featured");
             while ($row = $res->fetch_object()) {
                 echo " 
                     <div class='mySlides'>
@@ -96,7 +90,7 @@ if (mysqli_connect_errno()) {
                 <div class="movie-list">
                     <?php
                     $cnt = 4;
-                    $asdf = $con->query("SELECT * FROM movielist");
+                    $asdf = $db->query("SELECT * FROM movielist");
                     while ($row = $asdf->fetch_object()) {
                         echo "
                             <div class='movie-list-item'>
