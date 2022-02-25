@@ -19,29 +19,7 @@ include('server.php');
 
 <body>
     <!-- Navigation bar -->
-    <div class="navbar">
-        <div class="navbar-container">
-            <div class="logo-container">
-                <h1 class="logo">Future Cinemas</h1>
-            </div>
-            <div class="menu-container">
-                <ul class="menu-list">
-                    <li class="menu-list-item active"><a link href="index.php">Home</a></li>
-                    <li class="menu-list-item"><a link href="#">My Tickets</a></li>
-                    <li class="menu-list-item"><a href="#">Schedule</a></li>
-                    <li class="menu-list-item"><a link href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="profile-container">
-                <div class="profile-text-container">
-                    <ul class="profile-list">
-                        <li class="profile-list-item"><a href="login.php">Login</a></li>
-                        <li class="profile-list-item"><a href="register.php">Register</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php include 'header.php' ?>
     <div class="container">
         <!-- Slideshow container -->
         <div class="slideshow-container">
